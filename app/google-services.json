@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "549319418287",
+    "project_id": "sdu-store-6366a",
+    "storage_bucket": "sdu-store-6366a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549319418287:android:7e9d870e7939dfacb30f5a",
+        "android_client_info": {
+          "package_name": "com.example.sdustore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549319418287-fqakebvt284c4vk76f37bmmb7u2i73bi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnp_JcFJ4hxmlmbn_zRaaiA5MwFgMR-9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549319418287-fqakebvt284c4vk76f37bmmb7u2i73bi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
