@@ -1,4 +1,4 @@
-package com.example.sdustore.feature
+package com.example.sdustore.feature.authorization
 
 import android.graphics.Color
 import android.os.Bundle

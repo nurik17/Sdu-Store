@@ -6,7 +6,7 @@
     app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.sdustore.feature.SplashFragment"
+        android:name="com.example.sdustore.feature.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/introductionFragment"
-        android:name="com.example.sdustore.feature.IntroductionFragment"
+        android:name="com.example.sdustore.feature.authorization.IntroductionFragment"
         android:label="fragment_introduction"
         tools:layout="@layout/fragment_introduction" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/accountOptionsFragment"
-        android:name="com.example.sdustore.feature.AccountOptionsFragment"
+        android:name="com.example.sdustore.feature.authorization.AccountOptionsFragment"
         android:label="fragment_account_options"
         tools:layout="@layout/fragment_account_options" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.sdustore.feature.LoginFragment"
+        android:name="com.example.sdustore.feature.authorization.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.sdustore.feature.RegisterFragment"
+        android:name="com.example.sdustore.feature.authorization.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
     <fragment
