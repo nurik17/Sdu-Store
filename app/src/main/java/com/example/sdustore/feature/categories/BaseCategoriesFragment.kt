@@ -1,4 +1,4 @@
-package com.example.sdustore.fragments.categories
+package com.example.sdustore.feature.categories
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.example.sdustore.fragments
+package com.example.sdustore.feature
 
 import android.os.Bundle
 import android.os.Handler

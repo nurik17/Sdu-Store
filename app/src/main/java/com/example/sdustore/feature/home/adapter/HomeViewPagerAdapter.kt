@@ -1,4 +1,4 @@
-package com.example.sdustore.adapters
+package com.example.sdustore.feature.home.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

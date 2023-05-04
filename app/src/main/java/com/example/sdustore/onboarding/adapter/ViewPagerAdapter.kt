@@ -1,4 +1,4 @@
-package com.example.sdustore.adapters
+package com.example.sdustore.onboarding.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

@@ -6,7 +6,7 @@
     app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.sdustore.fragments.SplashFragment"
+        android:name="com.example.sdustore.feature.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/introductionFragment"
-        android:name="com.example.sdustore.fragments.IntroductionFragment"
+        android:name="com.example.sdustore.feature.IntroductionFragment"
         android:label="fragment_introduction"
         tools:layout="@layout/fragment_introduction" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/accountOptionsFragment"
-        android:name="com.example.sdustore.fragments.AccountOptionsFragment"
+        android:name="com.example.sdustore.feature.AccountOptionsFragment"
         android:label="fragment_account_options"
         tools:layout="@layout/fragment_account_options" >
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.sdustore.fragments.LoginFragment"
+        android:name="com.example.sdustore.feature.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.sdustore.fragments.RegisterFragment"
+        android:name="com.example.sdustore.feature.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
     <fragment
@@ -68,22 +68,22 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.sdustore.fragments.home.HomeFragment"
+        android:name="com.example.sdustore.feature.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/favouriteFragment"
-        android:name="com.example.sdustore.fragments.favourite.FavouriteFragment"
+        android:name="com.example.sdustore.feature.favourite.FavouriteFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourite" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.sdustore.fragments.profile.ProfileFragment"
+        android:name="com.example.sdustore.feature.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/shopFragment"
-        android:name="com.example.sdustore.fragments.shop.ShopFragment"
+        android:name="com.example.sdustore.feature.shop.ShopFragment"
         android:label="fragment_shop"
         tools:layout="@layout/fragment_shop" />
 </navigation>
