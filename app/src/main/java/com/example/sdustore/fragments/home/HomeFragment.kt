@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import com.example.sdustore.adapters.HomeViewPagerAdapter
 import com.example.sdustore.databinding.FragmentHomeBinding
 import com.example.sdustore.fragments.categories.*
+import com.example.sdustore.utils.extensions.isNightMode
+import com.example.sdustore.utils.extensions.setStatusBarContentColor
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -26,6 +28,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val isNightMode = requireContext().isNightMode()
+        requireActivity().window?.setStatusBarContentColor(!isNightMode)
 
         val categoriesFragment = arrayListOf<Fragment>(
             MainCategoryFragment(),
