@@ -8,7 +8,9 @@ import android.view.WindowManager
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-fun Window.addPadding(view: View) {
+fun Window.addPadding(
+    view: View
+) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
         ViewCompat.setOnApplyWindowInsetsListener(view) { _, insets ->
             val imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
@@ -21,7 +23,7 @@ fun Window.addPadding(view: View) {
                 if (imeHeight == 0) {
                     navigationBar
                 } else {
-                    imeHeight - navigationBar
+                    imeHeight
                 }
             )
             return@setOnApplyWindowInsetsListener insets

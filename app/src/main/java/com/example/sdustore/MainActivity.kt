@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
                 bottomNavView.visibility = View.INVISIBLE
             }
         }
-        window?.addPadding(binding.root)
     }
 
     private fun setFullScreen() {
