@@ -1,13 +1,15 @@
-package com.example.sdustore.fragments.home
+package com.example.sdustore.feature.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sdustore.adapters.HomeViewPagerAdapter
+import com.example.sdustore.feature.home.adapter.HomeViewPagerAdapter
 import com.example.sdustore.databinding.FragmentHomeBinding
-import com.example.sdustore.fragments.categories.*
+import com.example.sdustore.feature.categories.*
+import com.example.sdustore.utils.extensions.isNightMode
+import com.example.sdustore.utils.extensions.setStatusBarContentColor
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -26,6 +28,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val isNightMode = requireContext().isNightMode()
+        requireActivity().window?.setStatusBarContentColor(!isNightMode)
 
         val categoriesFragment = arrayListOf<Fragment>(
             MainCategoryFragment(),

@@ -1,4 +1,4 @@
-package com.example.sdustore.fragments.favourite
+package com.example.sdustore.feature.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,14 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.sdustore.R
 
-class FavouriteFragment : Fragment() {
-
+class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favourite, container, false)
+        return inflater.inflate(R.layout.fragment_profile, container, false)
     }
-
 }

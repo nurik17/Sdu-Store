@@ -1,4 +1,4 @@
-package com.example.sdustore.fragments.categories
+package com.example.sdustore.feature.categories
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.sdustore.R
 
-class SweetshotFragment : BaseCategoriesFragment() {
+class CupsFragment : BaseCategoriesFragment() {
 
 
     override fun onCreateView(

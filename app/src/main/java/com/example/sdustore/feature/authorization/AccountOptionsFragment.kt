@@ -1,4 +1,4 @@
-package com.example.sdustore.fragments
+package com.example.sdustore.feature.authorization
 
 import android.os.Bundle
 import android.view.LayoutInflater

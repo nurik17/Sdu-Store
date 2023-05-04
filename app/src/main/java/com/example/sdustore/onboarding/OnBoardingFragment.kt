@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sdustore.adapters.ViewPagerAdapter
+import com.example.sdustore.onboarding.adapter.ViewPagerAdapter
 import com.example.sdustore.databinding.FragmentOnBoardingBinding
+import com.example.sdustore.utils.extensions.addPadding
+import com.example.sdustore.utils.extensions.isNightMode
+import com.example.sdustore.utils.extensions.setStatusBarContentColor
 
 
 class OnBoardingFragment : Fragment() {
@@ -19,8 +22,9 @@ class OnBoardingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentOnBoardingBinding.inflate(inflater, container, false)
-
-
+        val isNightMode = requireContext().isNightMode()
+        requireActivity().window?.setStatusBarContentColor(isNightMode)
+        requireActivity().window?.addPadding(binding.root)
         val fragmentList = arrayListOf<Fragment>(
             FirstFragment(),
             SecondFragment(),
