@@ -18,10 +18,13 @@ class IntroductionFragment : Fragment() {
     ): View? {
         binding = FragmentIntroductionBinding.inflate(inflater, container, false)
 
-        binding.startBtn.setOnClickListener{
-            findNavController()
-                .navigate(R.id.action_introductionFragment_to_accountOptionsFragment)
+        binding.startBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_introductionFragment_to_accountOptionsFragment)
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }

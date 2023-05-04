@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:text="@string/let_s_register"
-            android:fontFamily="@font/sf_pro_display"
+            android:fontFamily="@font/inter_medium"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@id/guidelineRegisterRight"
             app:layout_constraintStart_toStartOf="@id/guidelineRegisterLeft"

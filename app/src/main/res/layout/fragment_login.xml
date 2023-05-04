@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:text="Let's Login"
-            android:fontFamily="@font/sf_pro_display"
+            android:fontFamily="@font/inter_medium"
             android:textAlignment="center"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"

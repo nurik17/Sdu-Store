@@ -31,9 +31,13 @@ class LoginFragment : Fragment() {
 
         binding.RegisterBtn.setOnClickListener{
             findNavController()
-                .navigate(R.id.action_accountOptionsFragment_to_loginFragment)
+                .navigate(R.id.action_loginFragment_to_homeFragment)
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }

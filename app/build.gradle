@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
 
 }
 
@@ -50,11 +51,18 @@ dependencies {
     //material design
     implementation 'com.google.android.material:material:1.8.0'
 
+    //navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.15.1'
 
+    //Viewpager Implementation
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+    implementation 'com.tbuonomo:dotsindicator:4.3'
 
 
     //ViewModel
