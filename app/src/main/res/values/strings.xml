@@ -24,4 +24,9 @@
     <string name="profile">Profile</string>
     <string name="shop">shop</string>
     <string name="next">Next</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="reset">Reset</string>]
+
+    <style name="web_id">112624020387-pd6lhmj2re55ub4nmve84qhg1fcgbep2.apps.googleusercontent.com</style>
 </resources>

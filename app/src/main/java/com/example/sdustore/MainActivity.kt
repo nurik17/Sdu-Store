@@ -5,19 +5,24 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.NavDestination
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.sdustore.databinding.ActivityMainBinding
-import com.example.sdustore.utils.extensions.addPadding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var mAuth : FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setFullScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
 
         val bottomNavView: BottomNavigationView = binding.bottomNavView
 

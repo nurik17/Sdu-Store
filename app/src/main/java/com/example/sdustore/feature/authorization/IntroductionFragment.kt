@@ -10,10 +10,11 @@ import com.example.sdustore.R
 import com.example.sdustore.databinding.FragmentIntroductionBinding
 import com.example.sdustore.utils.extensions.isNightMode
 import com.example.sdustore.utils.extensions.setStatusBarContentColor
+import com.google.firebase.auth.FirebaseAuth
 
 class IntroductionFragment : Fragment() {
     private lateinit var binding : FragmentIntroductionBinding
-
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,6 +22,9 @@ class IntroductionFragment : Fragment() {
         binding = FragmentIntroductionBinding.inflate(inflater, container, false)
         val isNightMode = requireContext().isNightMode()
         requireActivity().window?.setStatusBarContentColor(!isNightMode)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+
         binding.startBtn.setOnClickListener {
             findNavController().navigate(R.id.action_introductionFragment_to_accountOptionsFragment)
         }
@@ -29,5 +33,7 @@ class IntroductionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
     }
 }
