@@ -1,6 +1,7 @@
 package com.example.sdustore.feature.authorization
 
 import android.app.AlertDialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -47,8 +48,13 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         firebaseAuth = FirebaseAuth.getInstance()
+        val sharedPreference = requireActivity().getSharedPreferences("MY_PRE",Context.MODE_PRIVATE)
+        val getEmail = sharedPreference.getString("email","")
+        val getPassword = sharedPreference.getString("password","")
 
-
+        if(getEmail != "" && getPassword != ""){
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        }
 
         binding.RegisterBtn.setOnClickListener {
             val email = binding.emaill.text.toString()
@@ -57,7 +63,7 @@ class LoginFragment : Fragment() {
             if(email.isNotEmpty() && password.isNotEmpty()){
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                     if(it.isSuccessful){
-                        findNavController().navigate(R.id.homeFragment)
+                        findNavController().navigate(R.id.navigation_home)
                     }else{
                         Toast.makeText(requireContext(), it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
@@ -65,6 +71,11 @@ class LoginFragment : Fragment() {
             }else{
                 Toast.makeText(requireContext(), "Fileds can not be empty", Toast.LENGTH_SHORT).show()
             }
+
+            val editor = sharedPreference.edit()
+            editor.putString("email",email)
+            editor.putString("password",password)
+            editor.apply()
         }
         binding.forgotPassword.setOnClickListener {
             val builder =  AlertDialog.Builder(requireContext())
@@ -102,5 +113,9 @@ class LoginFragment : Fragment() {
                 Toast.makeText(requireContext(), "Check you email", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun sharedPreference(){
+
     }
 }

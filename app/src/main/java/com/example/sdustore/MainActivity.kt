@@ -5,7 +5,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.NavDestination
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.sdustore.databinding.ActivityMainBinding
@@ -42,7 +41,8 @@ class MainActivity : AppCompatActivity() {
 
 
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
-            if (nd.id == R.id.homeFragment) {
+            if (nd.id == R.id.navigation_home || nd.id == R.id.navigation_favourite
+                ||nd.id == R.id.navigation_profile ||nd.id == R.id.navigation_shop) {
                 bottomNavView.visibility = View.VISIBLE
             } else {
                 bottomNavView.visibility = View.INVISIBLE
