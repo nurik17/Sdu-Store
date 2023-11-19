@@ -9,7 +9,7 @@ import com.example.sdustore.data.extensions.RegisterValidation
 import com.example.sdustore.data.extensions.validateEmail
 import com.example.sdustore.data.extensions.validatePassword
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,10 +20,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val firebaseAuth: FirebaseAuth
+    private val firebaseAuth: FirebaseAuth,
+    private val firestore: FirebaseFirestore
 ) : ViewModel() {
 
-    private val _register = MutableStateFlow<Resource<FirebaseUser>>(Resource.Loading())
+    private val _register = MutableStateFlow<Resource<User>>(Resource.Loading())
     val register = _register.asStateFlow()
 
     private val _validation = Channel<RegisterFieldsState>()
@@ -34,7 +35,7 @@ class RegisterViewModel @Inject constructor(
             firebaseAuth.createUserWithEmailAndPassword(user.email, password) //create Account
                 .addOnSuccessListener {
                     it.user?.let {
-                        _register.value = Resource.Success(it)
+                        saveUserInfo(userUid = it.uid, user = user)
                     }
                 }.addOnFailureListener {
                     _register.value = Resource.Error(it.message.toString())
@@ -48,6 +49,17 @@ class RegisterViewModel @Inject constructor(
                 _validation.send(registerFieldsState)
             }
         }
+    }
+
+    private fun saveUserInfo(userUid: String, user: User) {
+        firestore.collection("user")
+            .document(userUid)
+            .set(user)
+            .addOnSuccessListener {
+                _register.value = Resource.Success(user)
+            }.addOnFailureListener {
+                _register.value = Resource.Error(it.message.toString())
+            }
     }
 
     private fun checkValidation(user: User, password: String): Boolean {

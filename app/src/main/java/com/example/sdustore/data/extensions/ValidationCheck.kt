@@ -14,7 +14,7 @@ fun validateEmail(email: String): RegisterValidation {
 fun validatePassword(password: String): RegisterValidation {
     if(password.isEmpty())
         return RegisterValidation.Failed("Password cannot be empty")
-    if (password.length > 6)
+    if (password.length < 6)
         return RegisterValidation.Failed("Password should contains 6 char")
 
     return RegisterValidation.Success
