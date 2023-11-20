@@ -50,6 +50,7 @@ class RegisterFragment : BaseFragment<RegisterFragmentBinding>(RegisterFragmentB
                             binding.btnSignUp.isEnabled = false
                             Log.e(REGISTER_TAG, it.message.toString())
                         }
+                        else->Unit
                     }
                 }
             }
