@@ -1,4 +1,4 @@
-package com.example.sdustore.ui
+package com.example.sdustore.ui.loginRegister
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -21,10 +21,19 @@ class LoginViewModel @Inject constructor(
     private val _login = MutableStateFlow<Resource<FirebaseUser>>(Resource.UnSpecified())
     val login = _login.asStateFlow()
 
-    fun login(email: String,password: String){
+    private val _resetPassword = MutableSharedFlow<Resource<String>>()
+    val resetPassword = _resetPassword.asSharedFlow()
+
+    fun login(email: String, password: String) {
+        if (email.isEmpty() || password.isEmpty()) {
+            viewModelScope.launch {
+                _login.emit(Resource.Error("Email and Password can not be empty"))
+            }
+            return
+        }
         viewModelScope.launch { _login.emit(Resource.Loading()) }
         firebaseAuth.signInWithEmailAndPassword(
-            email,password
+            email, password
         ).addOnSuccessListener {
             viewModelScope.launch {
                 it.user?.let {
@@ -36,5 +45,22 @@ class LoginViewModel @Inject constructor(
                 _login.emit(Resource.Error(it.message.toString()))
             }
         }
+    }
+
+    fun resetPassword(email: String) {
+        viewModelScope.launch {
+            _resetPassword.emit(Resource.Loading())
+        }
+        firebaseAuth
+            .sendPasswordResetEmail(email)
+            .addOnSuccessListener {
+                viewModelScope.launch {
+                    _resetPassword.emit(Resource.Success(email))
+                }
+            }.addOnFailureListener {
+                viewModelScope.launch {
+                    _resetPassword.emit(Resource.Error(it.message.toString()))
+                }
+            }
     }
 }

@@ -3,4 +3,8 @@
     <string name="sdu_store">Sdu Store</string>
     <string name="successful">Successful!</string>
     <string name="long_text_success">You have successfully registered in\n our app and start working in it</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_password_big_text">We will send you password reset link to your email</string>
+    <string name="send">Send</string>
+    <string name="cancel">Cancel</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.sdustore.ui
+package com.example.sdustore.ui.loginRegister
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

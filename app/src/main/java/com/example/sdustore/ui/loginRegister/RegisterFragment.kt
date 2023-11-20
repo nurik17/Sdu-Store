@@ -1,4 +1,4 @@
-package com.example.sdustore.ui
+package com.example.sdustore.ui.loginRegister
 
 import android.util.Log
 import androidx.fragment.app.viewModels
@@ -15,7 +15,6 @@ import com.example.sdustore.data.extensions.setSafeOnClickListener
 import com.example.sdustore.databinding.RegisterFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
