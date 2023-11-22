@@ -7,4 +7,9 @@
     <string name="reset_password_big_text">We will send you password reset link to your email</string>
     <string name="send">Send</string>
     <string name="cancel">Cancel</string>
+    <string name="main_page">Главная</string>
+    <string name="category">Категории</string>
+    <string name="basket">Корзина</string>
+    <string name="favourite">Избранное</string>
+    <string name="profile">Профиль</string>
 </resources>

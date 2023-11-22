@@ -4,4 +4,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="blue">#0044BF</color>
+    <color name="bottom_item_tint">#888</color>
+
+    <color name="bottomSelectedIconColor">#0044BF</color>
+    <color name="bottomUnselectedIconColor">#888</color>
 </resources>
