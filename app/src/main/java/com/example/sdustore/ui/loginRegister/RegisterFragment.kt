@@ -1,6 +1,7 @@
 package com.example.sdustore.ui.loginRegister
 
 import android.util.Log
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -42,9 +43,9 @@ class RegisterFragment : BaseFragment<RegisterFragmentBinding>(RegisterFragmentB
 
                         is Resource.Success -> {
                             binding.btnSignUp.isEnabled = true
+                            Toast.makeText(requireContext(), "You logged in successfully", Toast.LENGTH_SHORT).show()
                             Log.d(REGISTER_TAG, it.data.toString())
                         }
-
                         is Resource.Error -> {
                             binding.btnSignUp.isEnabled = false
                             Log.e(REGISTER_TAG, it.message.toString())

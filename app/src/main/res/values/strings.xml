@@ -12,4 +12,6 @@
     <string name="basket">Корзина</string>
     <string name="favourite">Избранное</string>
     <string name="profile">Профиль</string>
+    <string name="search_item">Поиск товара</string>
+    <string name="all">Все</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.example.sdustore.ui.loginRegister
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sdustore.data.Resource
@@ -15,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val firebaseAuth: FirebaseAuth
+    private val firebaseAuth: FirebaseAuth,
 ) : ViewModel() {
 
     private val _login = MutableStateFlow<Resource<FirebaseUser>>(Resource.UnSpecified())
