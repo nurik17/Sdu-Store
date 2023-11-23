@@ -14,4 +14,7 @@
     <string name="profile">Профиль</string>
     <string name="search_item">Поиск товара</string>
     <string name="all">Все</string>
+    <string name="t_shirt">Футболки</string>
+    <string name="hudi">Худи</string>
+    <string name="sweetShot">Свитшоты</string>
 </resources>
