@@ -66,6 +66,7 @@ class LoginFragment : BaseFragment<LoginFragmentBinding>(LoginFragmentBinding::i
                         }
                         is Resource.Error ->{
                             binding.progressBar.visibility = View.GONE
+                            Snackbar.make(requireView(),"Your email or password incorrect",Snackbar.LENGTH_LONG).show()
                             Log.d(LOGIN_TAG, it.message.toString())
                         }
                         else-> Unit

@@ -11,6 +11,7 @@ import com.example.sdustore.base.BaseFragment
 import com.example.sdustore.data.MainRecyclerData
 import com.example.sdustore.data.Resource
 import com.example.sdustore.databinding.FragmentHomeBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,15 +46,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                     when(it){
                         is Resource.Loading->{
                             binding.progressBarNews.visibility = View.VISIBLE
+                            inVisibleComponents()
                         }
                         is Resource.Success->{
-                            binding.progressBarNews.visibility = View.INVISIBLE
+                            binding.progressBarNews.visibility = View.GONE
+                            visibleComponents()
                             it.data?.let { it1 -> newsAdapter.setData(it1) }
-                            Log.d(HOME_FRAG_TAG,"success")
                         }
                         is Resource.Error->{
                             binding.progressBarNews.visibility = View.GONE
-                            Log.e(HOME_FRAG_TAG, it.message.toString())
+                            inVisibleComponents()
+                            Snackbar.make(requireView(),"Check your internet connection",
+                                Snackbar.LENGTH_LONG).show()
                         }
                         else -> Unit
                     }
@@ -62,4 +66,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         }
     }
 
+    private fun visibleComponents(){
+        binding.blueLayout.visibility = View.VISIBLE
+        binding.cardTShirt.visibility = View.VISIBLE
+        binding.cardHudi.visibility = View.VISIBLE
+        binding.cardSweetShot.visibility = View.VISIBLE
+        binding.textTopCategory.visibility = View.VISIBLE
+        binding.allLayout.visibility = View.VISIBLE
+    }
+    private fun inVisibleComponents(){
+        binding.blueLayout.visibility = View.INVISIBLE
+        binding.cardTShirt.visibility = View.INVISIBLE
+        binding.cardHudi.visibility = View.INVISIBLE
+        binding.cardSweetShot.visibility = View.INVISIBLE
+        binding.textTopCategory.visibility = View.INVISIBLE
+        binding.allLayout.visibility = View.INVISIBLE
+    }
 }
