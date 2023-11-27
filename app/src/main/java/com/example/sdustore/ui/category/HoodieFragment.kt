@@ -1,4 +1,3 @@
 package com.example.sdustore.ui.category
 
-class HoodieFragment: BaseCategoryFragment() {
-}
+private const val ALL_PROD_FRAG = "ALL_PR_FRAG"

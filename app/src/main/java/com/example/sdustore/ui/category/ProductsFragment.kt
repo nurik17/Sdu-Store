@@ -8,6 +8,7 @@ import com.example.sdustore.base.BaseFragment
 import com.example.sdustore.databinding.FragmentProductsBinding
 import com.example.sdustore.ui.category.adapter.ProductViewPagerAdapter
 import com.example.sdustore.ui.category.allProduct.AllProductFragment
+import com.example.sdustore.ui.category.hoodie.HoodieFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator

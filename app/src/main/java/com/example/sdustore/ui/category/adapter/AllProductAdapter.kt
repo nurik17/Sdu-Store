@@ -53,6 +53,8 @@ class AllProductAdapter(
                     productOfferPercentage.text = ("-" +(item.offerPercentage * 100) + "%")
                     productPriceOffer.text = spannableString
                     productPrice.text = (item.price-(item.price * item.offerPercentage)).toInt().toString()
+
+
                 }else{
                     productOfferPercentage.visibility = View.INVISIBLE
                     productPriceOffer.visibility = View.GONE

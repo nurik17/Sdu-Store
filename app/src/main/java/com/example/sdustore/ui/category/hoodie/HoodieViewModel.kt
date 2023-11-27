@@ -1,6 +1,5 @@
-package com.example.sdustore.ui.category.allProduct
+package com.example.sdustore.ui.category.hoodie
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sdustore.data.Product
@@ -12,35 +11,34 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-import java.lang.Exception
 import javax.inject.Inject
 
+
 @HiltViewModel
-class AllProductViewModel @Inject constructor(
+class HoodieViewModel @Inject constructor(
     private val fireStore: FirebaseFirestore,
     private val storage: FirebaseStorage
 ) : ViewModel(){
 
-    private val _allProducts = MutableStateFlow<Resource<List<Product>>>(Resource.UnSpecified())
-    val allProducts = _allProducts.asStateFlow()
+    private val _hoodieProduct = MutableStateFlow<Resource<List<Product>>>(Resource.UnSpecified())
+    val hoodieProduct = _hoodieProduct.asStateFlow()
 
     init {
-        fetchAllProducts()
+        fetchHoodieProduct()
     }
 
-    private fun fetchAllProducts(){
+    private fun fetchHoodieProduct() {
         viewModelScope.launch {
             try{
-                _allProducts.emit(Resource.Loading())
+                _hoodieProduct.emit(Resource.Loading())
                 val result = fireStore.collection("Product")
-                    .whereEqualTo("category","All")
+                    .whereEqualTo("category","Hoodie")
                     .get()
                     .await()
                 val dataList = result.toObjects(Product::class.java)
-                _allProducts.emit(Resource.Success(dataList))
-                Log.d("AllProductViewModel", "fetchSpecialProducts:$dataList")
+                _hoodieProduct.emit(Resource.Success(dataList))
             }catch (e: Exception){
-                _allProducts.emit(Resource.Error(e.message.toString()))
+                _hoodieProduct.emit(Resource.Error(e.message.toString()))
             }
         }
     }
