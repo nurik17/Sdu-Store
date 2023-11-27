@@ -25,7 +25,17 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.sdustore.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_historyPageFragment"
+            app:destination="@id/historyPageFragment" />
+        <argument
+            android:name="mainRecyclerData"
+            app:argType="com.example.sdustore.data.MainRecyclerData" />
+        <action
+            android:id="@+id/action_homeFragment_to_productsFragment"
+            app:destination="@id/productsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.sdustore.ui.CategoryFragment"
@@ -42,4 +52,12 @@
         android:id="@+id/favouriteFragment"
         android:name="com.example.sdustore.ui.FavouriteFragment"
         android:label="FavouriteFragment" />
+    <fragment
+        android:id="@+id/historyPageFragment"
+        android:name="com.example.sdustore.ui.home.HistoryPageFragment"
+        android:label="HistoryPageFragment" />
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.example.sdustore.ui.category.ProductsFragment"
+        android:label="ProductsFragment" />
 </navigation>

@@ -1,21 +1,22 @@
 package com.example.sdustore.ui.home
 
-import android.util.Log
+import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.SnapHelper
+import com.example.sdustore.R
 import com.example.sdustore.base.BaseFragment
 import com.example.sdustore.data.MainRecyclerData
 import com.example.sdustore.data.Resource
+import com.example.sdustore.data.extensions.setSafeOnClickListener
 import com.example.sdustore.databinding.FragmentHomeBinding
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.Firebase
-import com.google.firebase.firestore.firestore
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -26,18 +27,33 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
     private val homeViewModel: HomeViewModel by viewModels()
     private val newsAdapter by lazy {
-        MainRecyclerAdapter()
+        MainRecyclerAdapter{ item->
+            onItemClick(item)
+        }
     }
     override fun onBindView() {
         super.onBindView()
         setUpNewsRecyclerView()
         handleStateNewsItems()
+
+        binding.allLayout.setSafeOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_productsFragment)
+        }
+    }
+
+    private fun onItemClick(item: MainRecyclerData){
+        val bundle = Bundle()
+        bundle.putParcelable("mainRecyclerData",item)
+        findNavController().navigate(R.id.action_homeFragment_to_historyPageFragment,bundle)
     }
 
     private fun setUpNewsRecyclerView(){
         binding.newsRv.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.newsRv.adapter = newsAdapter
+/*
+        binding.newsRv.smoothScrollToPosition(1) // snapHelper
+*/
     }
     private fun handleStateNewsItems(){
         lifecycleScope.launch {
@@ -52,6 +68,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
                             binding.progressBarNews.visibility = View.GONE
                             visibleComponents()
                             it.data?.let { it1 -> newsAdapter.setData(it1) }
+                            binding.newsRv.smoothScrollToPosition(1)
+
                         }
                         is Resource.Error->{
                             binding.progressBarNews.visibility = View.GONE
@@ -81,5 +99,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         binding.cardSweetShot.visibility = View.INVISIBLE
         binding.textTopCategory.visibility = View.INVISIBLE
         binding.allLayout.visibility = View.INVISIBLE
+    }
+    companion object{
+        private const val MAIN_RV_DATA = "mainRecyclerData"
     }
 }

@@ -14,6 +14,7 @@ import com.example.sdustore.data.User
 import com.example.sdustore.data.extensions.RegisterValidation
 import com.example.sdustore.data.extensions.setSafeOnClickListener
 import com.example.sdustore.databinding.RegisterFragmentBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -48,6 +49,7 @@ class RegisterFragment : BaseFragment<RegisterFragmentBinding>(RegisterFragmentB
                         }
                         is Resource.Error -> {
                             binding.btnSignUp.isEnabled = false
+                            Snackbar.make(requireView(),it.message.toString(),Snackbar.LENGTH_LONG).show()
                             Log.e(REGISTER_TAG, it.message.toString())
                         }
                         else->Unit

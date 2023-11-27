@@ -21,32 +21,35 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/item1"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
             android:id="@+id/textTitle"
-            android:layout_width="120dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="23dp"
+            android:layout_marginEnd="30dp"
             android:fontFamily="@font/sf_pro_display700"
             android:text="----"
             android:textColor="@color/black"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textSubTitle"
-            android:layout_width="120dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
             android:fontFamily="@font/sf_pro_display400"
             android:text="Жұптарға арналған топтама"
             android:textColor="@color/black"
             android:textSize="14sp"
-            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/textTitle"
             app:layout_constraintTop_toBottomOf="@id/textTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,16 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sdustore.data.MainRecyclerData
 import com.example.sdustore.data.Resource
-import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.storage
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 @HiltViewModel
@@ -31,22 +28,20 @@ class HomeViewModel @Inject constructor(
         fetchSpecialProducts()
     }
 
-     private fun fetchSpecialProducts() {
+    private fun fetchSpecialProducts() {
         viewModelScope.launch {
-            _newsAdapterItems.emit(Resource.Loading())
-        }
-        fireStore.collection("mainRecyclerData")
-            .get()
-            .addOnSuccessListener { result ->
+            try {
+                _newsAdapterItems.emit(Resource.Loading())
+                val result = fireStore.collection("mainRecyclerData")
+                    .get()
+                    .await()
                 val dataList = result.toObjects(MainRecyclerData::class.java)
-                viewModelScope.launch {
-                    _newsAdapterItems.emit(Resource.Success(dataList))
-                    Log.d("HomeViewModel", "fetchSpecialProducts:$dataList")
-                }
-            }.addOnFailureListener {
-                viewModelScope.launch {
-                    _newsAdapterItems.emit(Resource.Error(it.message.toString()))
-                }
+                _newsAdapterItems.emit(Resource.Success(dataList))
+                Log.d("HomeViewModel", "fetchSpecialProducts:$dataList")
+            } catch (e: Exception) {
+                _newsAdapterItems.emit(Resource.Error(e.message.toString()))
             }
+        }
     }
+
 }

@@ -8,4 +8,6 @@
 
     <color name="bottomSelectedIconColor">#0044BF</color>
     <color name="bottomUnselectedIconColor">#888</color>
+    <color name="product_category_text_color">#9B9B9B</color>
+    <color name="offerPercentage_back_color">#C24600</color>
 </resources>

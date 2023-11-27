@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.loginFragment -> hideBottomNav()
                 R.id.registerFragment -> hideBottomNav()
+                R.id.historyPageFragment-> hideBottomNav()
                 else-> showBottomNav()
             }
         }

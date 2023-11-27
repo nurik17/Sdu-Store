@@ -1,18 +1,19 @@
 package com.example.sdustore.ui.home
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.sdustore.R
 import com.example.sdustore.data.MainRecyclerData
+import com.example.sdustore.data.extensions.setSafeOnClickListener
 import com.example.sdustore.databinding.MainHomeRecyclerItemBinding
 
-class MainRecyclerAdapter : ListAdapter<MainRecyclerData, MainRecyclerAdapter.NewsViewHolder>(DiffUtilCallBack()) {
+class MainRecyclerAdapter(
+    private val onClick :(MainRecyclerData) ->Unit
+) : ListAdapter<MainRecyclerData, MainRecyclerAdapter.NewsViewHolder>(DiffUtilCallBack()) {
 
     fun setData(newList: List<MainRecyclerData>) {
         submitList(newList)
@@ -25,11 +26,11 @@ class MainRecyclerAdapter : ListAdapter<MainRecyclerData, MainRecyclerAdapter.Ne
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(item,onClick)
     }
 
     class NewsViewHolder(private val binding: MainHomeRecyclerItemBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(item: MainRecyclerData){
+        fun bind(item: MainRecyclerData,onClick: (MainRecyclerData) -> Unit){
             binding.apply {
                 textTitle.text = item.textTitle
                 textSubTitle.text = item.textSubTitle
@@ -46,6 +47,9 @@ class MainRecyclerAdapter : ListAdapter<MainRecyclerData, MainRecyclerAdapter.Ne
                     Glide.with(imageBack)
                         .load(imageUrl)
                         .into(imageBack)
+                }
+                root.setSafeOnClickListener {
+                    onClick.invoke(item)
                 }
             }
         }
