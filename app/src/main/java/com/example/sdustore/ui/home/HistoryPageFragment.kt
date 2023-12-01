@@ -5,7 +5,7 @@ import android.os.Looper
 import android.widget.ProgressBar
 import com.example.sdustore.base.BaseFragment
 import com.example.sdustore.data.extensions.getParcelableArgumentCompat
-import com.example.sdustore.data.MainRecyclerData
+import com.example.sdustore.data.entity.MainRecyclerData
 import com.example.sdustore.databinding.HistoryPageFragmentBinding
 
 class HistoryPageFragment : BaseFragment<HistoryPageFragmentBinding>(HistoryPageFragmentBinding::inflate) {

@@ -1,21 +1,19 @@
 package com.example.sdustore.ui.category.adapter
 
 import android.annotation.SuppressLint
-import android.text.Spannable
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StrikethroughSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.marginStart
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.sdustore.data.Product
+import com.example.sdustore.data.entity.Product
 import com.example.sdustore.databinding.ProductAllItemBinding
-import com.example.sdustore.utils.dp
+import com.example.sdustore.data.extensions.dp
 
 class AllProductAdapter(
     private val onClick: (Product) -> Unit
@@ -23,7 +21,6 @@ class AllProductAdapter(
 
     fun setData(productList: List<Product>) {
         submitList(productList)
-        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -53,8 +50,6 @@ class AllProductAdapter(
                     productOfferPercentage.text = ("-" +(item.offerPercentage * 100) + "%")
                     productPriceOffer.text = spannableString
                     productPrice.text = (item.price-(item.price * item.offerPercentage)).toInt().toString()
-
-
                 }else{
                     productOfferPercentage.visibility = View.INVISIBLE
                     productPriceOffer.visibility = View.GONE

@@ -9,6 +9,7 @@ import com.example.sdustore.databinding.FragmentProductsBinding
 import com.example.sdustore.ui.category.adapter.ProductViewPagerAdapter
 import com.example.sdustore.ui.category.allProduct.AllProductFragment
 import com.example.sdustore.ui.category.hoodie.HoodieFragment
+import com.example.sdustore.ui.category.tShirt.TShirtFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
@@ -33,12 +34,12 @@ class ProductsFragment : BaseFragment<FragmentProductsBinding>(FragmentProductsB
         binding.viewPager.adapter = viewPagerAdapter
         TabLayoutMediator(binding.tabLayout,binding.viewPager){tab,position->
             when(position){
-                0->tab.text = "Все"
+                0->tab.text = "All"
                 1->tab.text = "Hoodie"
                 2->tab.text = "T-Shirt"
                 3->tab.text = "SweetShot"
-                4->tab.text = "SweetShot"
-                5->tab.text = "SweetShot"
+                4->tab.text = "Bag"
+                5->tab.text = "Stickers"
             }
         }.attach()
     }

@@ -1,6 +1,5 @@
 package com.example.sdustore.ui.loginRegister
 
-import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -10,12 +9,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.sdustore.R
 import com.example.sdustore.base.BaseFragment
-import com.example.sdustore.data.Resource
+import com.example.sdustore.data.entity.Resource
 import com.example.sdustore.data.extensions.setSafeOnClickListener
 import com.example.sdustore.data.extensions.setUpBottomSheetDialog
 import com.example.sdustore.databinding.LoginFragmentBinding
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.play.integrity.internal.l
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

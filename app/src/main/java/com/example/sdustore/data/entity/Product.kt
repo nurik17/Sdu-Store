@@ -1,4 +1,4 @@
-package com.example.sdustore.data
+package com.example.sdustore.data.entity
 
 data class Product(
     val id: String,

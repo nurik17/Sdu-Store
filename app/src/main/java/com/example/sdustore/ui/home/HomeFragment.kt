@@ -8,11 +8,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.SnapHelper
 import com.example.sdustore.R
 import com.example.sdustore.base.BaseFragment
-import com.example.sdustore.data.MainRecyclerData
-import com.example.sdustore.data.Resource
+import com.example.sdustore.data.entity.MainRecyclerData
+import com.example.sdustore.data.entity.Resource
 import com.example.sdustore.data.extensions.setSafeOnClickListener
 import com.example.sdustore.databinding.FragmentHomeBinding
 import com.google.android.material.snackbar.Snackbar

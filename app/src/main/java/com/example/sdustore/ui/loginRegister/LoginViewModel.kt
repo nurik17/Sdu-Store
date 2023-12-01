@@ -2,7 +2,7 @@ package com.example.sdustore.ui.loginRegister
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.sdustore.data.Resource
+import com.example.sdustore.data.entity.Resource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,4 +1,4 @@
-package com.example.sdustore.data
+package com.example.sdustore.data.entity
 
 sealed class Resource<T>(
     val data: T? = null,

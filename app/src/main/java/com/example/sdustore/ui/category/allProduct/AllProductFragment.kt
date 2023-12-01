@@ -8,10 +8,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.sdustore.base.BaseFragment
-import com.example.sdustore.data.Resource
-import com.example.sdustore.databinding.FragmentAllProductBinding
+import com.example.sdustore.data.entity.Resource
 import com.example.sdustore.ui.category.adapter.AllProductAdapter
-import com.example.sdustore.utils.OffsetDecoration
+import com.example.sdustore.data.extensions.OffsetDecoration
+import com.example.sdustore.databinding.FragmentAllProductBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

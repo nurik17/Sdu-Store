@@ -9,8 +9,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.sdustore.R
 import com.example.sdustore.base.BaseFragment
-import com.example.sdustore.data.Resource
-import com.example.sdustore.data.User
+import com.example.sdustore.data.entity.Resource
+import com.example.sdustore.data.entity.User
 import com.example.sdustore.data.extensions.RegisterValidation
 import com.example.sdustore.data.extensions.setSafeOnClickListener
 import com.example.sdustore.databinding.RegisterFragmentBinding

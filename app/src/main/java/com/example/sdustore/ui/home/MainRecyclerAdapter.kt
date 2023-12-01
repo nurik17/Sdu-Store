@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.sdustore.R
-import com.example.sdustore.data.MainRecyclerData
+import com.example.sdustore.data.entity.MainRecyclerData
 import com.example.sdustore.data.extensions.setSafeOnClickListener
 import com.example.sdustore.databinding.MainHomeRecyclerItemBinding
 
@@ -30,7 +30,7 @@ class MainRecyclerAdapter(
     }
 
     class NewsViewHolder(private val binding: MainHomeRecyclerItemBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(item: MainRecyclerData,onClick: (MainRecyclerData) -> Unit){
+        fun bind(item: MainRecyclerData, onClick: (MainRecyclerData) -> Unit){
             binding.apply {
                 textTitle.text = item.textTitle
                 textSubTitle.text = item.textSubTitle

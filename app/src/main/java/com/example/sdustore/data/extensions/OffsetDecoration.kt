@@ -1,4 +1,4 @@
-package com.example.sdustore.utils
+package com.example.sdustore.data.extensions
 
 import android.content.res.Resources
 import android.graphics.Rect

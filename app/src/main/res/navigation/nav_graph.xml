@@ -31,7 +31,7 @@
             app:destination="@id/historyPageFragment" />
         <argument
             android:name="mainRecyclerData"
-            app:argType="com.example.sdustore.data.MainRecyclerData" />
+            app:argType="com.example.sdustore.data.entity.MainRecyclerData" />
         <action
             android:id="@+id/action_homeFragment_to_productsFragment"
             app:destination="@id/productsFragment" />

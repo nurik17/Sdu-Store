@@ -2,8 +2,8 @@ package com.example.sdustore.ui.loginRegister
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.sdustore.data.Resource
-import com.example.sdustore.data.User
+import com.example.sdustore.data.entity.Resource
+import com.example.sdustore.data.entity.User
 import com.example.sdustore.data.extensions.RegisterFieldsState
 import com.example.sdustore.data.extensions.RegisterValidation
 import com.example.sdustore.data.extensions.validateEmail

@@ -1,4 +1,4 @@
-package com.example.sdustore.data
+package com.example.sdustore.data.entity
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

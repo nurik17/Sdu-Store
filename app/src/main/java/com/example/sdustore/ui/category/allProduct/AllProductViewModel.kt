@@ -3,22 +3,18 @@ package com.example.sdustore.ui.category.allProduct
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.sdustore.data.Product
-import com.example.sdustore.data.Resource
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
+import com.example.sdustore.data.entity.Product
+import com.example.sdustore.data.entity.Resource
+import com.example.sdustore.data.useCases.AllProductUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
 class AllProductViewModel @Inject constructor(
-    private val fireStore: FirebaseFirestore,
-    private val storage: FirebaseStorage
+    private val allProductUseCase: AllProductUseCase
 ) : ViewModel(){
 
     private val _allProducts = MutableStateFlow<Resource<List<Product>>>(Resource.UnSpecified())
@@ -30,16 +26,20 @@ class AllProductViewModel @Inject constructor(
 
     private fun fetchAllProducts(){
         viewModelScope.launch {
-            try{
+            try {
                 _allProducts.emit(Resource.Loading())
-                val result = fireStore.collection("Product")
-                    .whereEqualTo("category","All")
-                    .get()
-                    .await()
-                val dataList = result.toObjects(Product::class.java)
-                _allProducts.emit(Resource.Success(dataList))
-                Log.d("AllProductViewModel", "fetchSpecialProducts:$dataList")
-            }catch (e: Exception){
+                when (val result = allProductUseCase.execute()) {
+                    is Resource.Success -> {
+                        _allProducts.emit(result)
+                        Log.d("AllProductViewModel", "fetchSpecialProducts:${result.data}")
+                    }
+                    is Resource.Error -> {
+                        _allProducts.emit(result)
+                        Log.e("AllProductViewModel", "Error fetching all products: ${result.message}")
+                    }
+                    else-> Unit
+                }
+            } catch (e: Exception) {
                 _allProducts.emit(Resource.Error(e.message.toString()))
             }
         }

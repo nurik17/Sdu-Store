@@ -1,7 +1,6 @@
 package com.example.sdustore.data.extensions
 
 import android.annotation.SuppressLint
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.example.sdustore.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
