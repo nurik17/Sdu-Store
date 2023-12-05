@@ -59,5 +59,33 @@
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.example.sdustore.ui.category.ProductsFragment"
-        android:label="ProductsFragment" />
+        android:label="ProductsFragment" >
+        <action
+            android:id="@+id/action_productsFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.sdustore.ui.category.ProductDetailsFragment"
+        android:label="ProductDetailsFragment" >
+        <argument
+            android:name="product"
+            app:argType="com.example.sdustore.data.entity.Product" />
+    </fragment>
+    <fragment
+        android:id="@+id/hoodieFragment"
+        android:name="com.example.sdustore.ui.category.hoodie.HoodieFragment"
+        android:label="HoodieFragment" >
+        <action
+            android:id="@+id/action_hoodieFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allProductFragment"
+        android:name="com.example.sdustore.ui.category.allProduct.AllProductFragment"
+        android:label="AllProductFragment" >
+        <action
+            android:id="@+id/action_allProductFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
 </navigation>

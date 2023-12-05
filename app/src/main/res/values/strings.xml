@@ -22,4 +22,8 @@
     <string name="product_name">BJB-BLACK</string>
     <string name="product_category_name">Bomber</string>
     <string name="offerPercentage">-60%</string>
+    <string name="add_to_basket">Добавить в корзину</string>
+    <string name="size">Размер</string>
+    <string name="added_to_basket">Добавлено</string>
+
 </resources>

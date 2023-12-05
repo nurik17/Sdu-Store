@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.loginFragment -> hideBottomNav()
                 R.id.registerFragment -> hideBottomNav()
                 R.id.historyPageFragment-> hideBottomNav()
+                R.id.productDetailsFragment -> hideBottomNav()
+                R.id.productsFragment ->hideBottomNav()
                 else-> showBottomNav()
             }
         }

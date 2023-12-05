@@ -6,7 +6,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-
 class ProductRepositoryImpl @Inject constructor(
     private val fireStore: FirebaseFirestore
 ): ProductRepository{

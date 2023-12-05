@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.sdustore.data.entity.Product
 import com.example.sdustore.databinding.ProductAllItemBinding
 import com.example.sdustore.data.extensions.dp
+import com.example.sdustore.data.extensions.setSafeOnClickListener
 
 class AllProductAdapter(
     private val onClick: (Product) -> Unit
@@ -49,15 +50,19 @@ class AllProductAdapter(
                 if(item.offerPercentage!! > 0){
                     productOfferPercentage.text = ("-" +(item.offerPercentage * 100) + "%")
                     productPriceOffer.text = spannableString
-                    productPrice.text = (item.price-(item.price * item.offerPercentage)).toInt().toString()
+                    productSalePrice.text = (item.price-(item.price * item.offerPercentage)).toInt().toString()
                 }else{
                     productOfferPercentage.visibility = View.INVISIBLE
                     productPriceOffer.visibility = View.GONE
-                    (productPrice.layoutParams as ViewGroup.MarginLayoutParams).marginStart = 0.dp
+                    (productSalePrice.layoutParams as ViewGroup.MarginLayoutParams).marginStart = 0.dp
                 }
                 Glide.with(productImage)
                     .load(item.images[0])
                     .into(productImage)
+
+                root.setOnClickListener {
+                    onClick(item)
+                }
             }
         }
     }

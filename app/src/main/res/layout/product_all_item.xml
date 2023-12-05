@@ -41,7 +41,6 @@
                 android:layout_width="160dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/qr_all_image2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/product_offerPercentage" />
@@ -53,7 +52,7 @@
                 app:layout_constraintTop_toBottomOf="@id/product_image"
                 android:text="@string/product_category_name"
                 android:textSize="13sp"
-                android:textColor="@color/product_category_text_color"
+                android:textColor="@color/color_grey"
                 android:fontFamily="@font/sf_pro_display400"
                 android:textAllCaps="true"
                 tools:ignore="SmallSp" />
@@ -74,17 +73,17 @@
             <TextView
                 android:id="@+id/product_price_offer"
                 android:layout_width="wrap_content"
-                android:textColor="@color/product_category_text_color"
+                android:textColor="@color/color_grey"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/product_name"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="5dp"
-                app:layout_constraintEnd_toStartOf="@id/product_price"
+                app:layout_constraintEnd_toStartOf="@id/product_sale_price"
                 android:fontFamily="@font/sf_pro_display700"
                 android:text="@string/price"/>
 
             <TextView
-                android:id="@+id/product_price"
+                android:id="@+id/product_sale_price"
                 android:layout_width="wrap_content"
                 android:textColor="@color/black"
                 android:layout_height="wrap_content"
