@@ -1,11 +1,15 @@
 package com.example.sdustore.data.entity
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
+
 
 @Parcelize
 data class Product(
-    val id: String,
+    @PrimaryKey val id: String,
     val name: String,
     val category: String,
     val price: Int,

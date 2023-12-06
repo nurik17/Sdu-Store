@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sdustore.R
 import com.example.sdustore.databinding.SizesItemBinding
 
-class ProductSizesAdapter(): ListAdapter<String, ProductSizesAdapter.SizeViewHolder>(DiffUtilCallBack()) {
+class ProductSizesAdapter: ListAdapter<String, ProductSizesAdapter.SizeViewHolder>(DiffUtilCallBack()) {
 
     private var selectedPosition = RecyclerView.NO_POSITION
 
+    var onItemClick:((String)-> Unit)? = null
     fun setData(sizeList: List<String>) {
         submitList(sizeList)
     }
@@ -41,6 +42,7 @@ class ProductSizesAdapter(): ListAdapter<String, ProductSizesAdapter.SizeViewHol
             notifyItemChanged(selectedPosition)
             selectedPosition = holder.adapterPosition
             notifyItemChanged(selectedPosition)
+            onItemClick?.invoke(size)
         }
     }
 

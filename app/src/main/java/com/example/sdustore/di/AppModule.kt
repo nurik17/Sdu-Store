@@ -1,8 +1,10 @@
 package com.example.sdustore.di
 
 import android.content.Context
+import com.example.sdustore.firebase.FireBaseCommon
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.storage
 import dagger.Module
@@ -31,4 +33,11 @@ class AppModule {
     @Provides
     @Singleton
     fun provideFirebaseStorage() = Firebase.storage
+
+    @Provides
+    @Singleton
+    fun provideFireBaseCommon(
+        firebaseAuth: FirebaseAuth,
+        firestore: FirebaseFirestore,
+    ) = FireBaseCommon(firestore,firebaseAuth)
 }
