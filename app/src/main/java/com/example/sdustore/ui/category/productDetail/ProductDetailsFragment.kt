@@ -1,5 +1,7 @@
 package com.example.sdustore.ui.category.productDetail
 
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.text.SpannableString
@@ -24,6 +26,7 @@ import com.example.sdustore.data.extensions.setSafeOnClickListener
 import com.example.sdustore.databinding.FragmentProductdetailsBinding
 import com.example.sdustore.ui.category.adapter.ProductSizesAdapter
 import com.example.sdustore.ui.category.adapter.ScrollImageAdapter
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -40,7 +43,7 @@ class ProductDetailsFragment :
     private val sizesAdapter by lazy {
         ProductSizesAdapter()
     }
-    private var selectedSize: String? = null
+    private var selectedSize: String = ""
 
     override fun onBindView() {
         super.onBindView()
@@ -56,7 +59,11 @@ class ProductDetailsFragment :
             selectedSize = it
         }
         binding.btnAddToBasket.setSafeOnClickListener {
-            viewModel.addUpdateProductInCart(CartProduct(product, 1, selectedSize))
+            if(selectedSize.isNotBlank()) {
+                viewModel.addUpdateProductInCart(CartProduct(product, 1, selectedSize))
+            }else{
+                Snackbar.make(requireView(),"Please choose a size of ${product.name}",Snackbar.LENGTH_LONG).show()
+            }
         }
 
         lifecycleScope.launch {
@@ -64,13 +71,12 @@ class ProductDetailsFragment :
                 viewModel.addToCart.collectLatest {
                     when (it) {
                         is Resource.Loading -> {
-
+                            animateBtn(binding.btnAddToBasket)
                         }
 
                         is Resource.Error -> {
-
+                            Snackbar.make(requireView(),it.message.toString(),Snackbar.LENGTH_LONG).show()
                         }
-
                         is Resource.Success -> {
                             binding.btnAddToBasket.backgroundTintList = ColorStateList.valueOf(
                                 ContextCompat.getColor(
@@ -78,8 +84,8 @@ class ProductDetailsFragment :
                                     R.color.color_green
                                 )
                             )
+                            Snackbar.make(requireView(),"Product successfully added to basket",Snackbar.LENGTH_LONG).show()
                         }
-
                         else -> Unit
                     }
                 }
@@ -132,16 +138,14 @@ class ProductDetailsFragment :
 
     }
 
-    private fun changeBtnColor() {
-        binding.btnAddToBasket.setSafeOnClickListener {
-            binding.btnAddToBasket.backgroundTintList = ColorStateList.valueOf(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.color_green
-                )
-            )
-            binding.btnAddToBasket.text = getString(R.string.added_to_basket)
-        }
+    private fun animateBtn(button: View) {
+        val scale = ObjectAnimator.ofPropertyValuesHolder(
+            button,
+            PropertyValuesHolder.ofFloat(View.SCALE_X,1f,1.5f,1f),
+            PropertyValuesHolder.ofFloat(View.SCALE_Y,1f,1.5f,1f),
+        )
+        scale.duration = 1000
+        scale.start()
     }
 
     private fun setUpBackButton() {
@@ -149,17 +153,4 @@ class ProductDetailsFragment :
             findNavController().popBackStack()
         }
     }
-
-//    private fun shareProduct(){
-//
-//        binding.icShare.setSafeOnClickListener {
-//            val sendIntent: Intent = Intent().apply {
-//                action = Intent.ACTION_SEND
-//                putExtra(Intent.EXTRA_TEXT,product.id)
-//                type = "text/plain"
-//            }
-//            val shareIntent = Intent.createChooser(sendIntent, null)
-//            startActivity(shareIntent)
-//        }
-//    }
 }

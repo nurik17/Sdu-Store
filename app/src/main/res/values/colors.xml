@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
+    <color name="black">#000</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="blue">#0044BF</color>
@@ -11,5 +11,7 @@
     <color name="color_grey">#9B9B9B</color>
     <color name="offerPercentage_back_color">#C24600</color>
     <color name="color_green">#34A853</color>
+    <color name="light_red">#C03333</color>
+    <color name="light_yellow">#FF5C00</color>
 
 </resources>

@@ -42,7 +42,7 @@
         android:label="CategoryFragment" />
     <fragment
         android:id="@+id/buyFragment"
-        android:name="com.example.sdustore.ui.BasketFragment"
+        android:name="com.example.sdustore.ui.basket.BasketFragment"
         android:label="BuyFragment" />
     <fragment
         android:id="@+id/profileFragment"

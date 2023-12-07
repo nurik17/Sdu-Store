@@ -14,7 +14,6 @@ import com.bumptech.glide.Glide
 import com.example.sdustore.data.entity.Product
 import com.example.sdustore.databinding.ProductAllItemBinding
 import com.example.sdustore.data.extensions.dp
-import com.example.sdustore.data.extensions.setSafeOnClickListener
 
 class AllProductAdapter(
     private val onClick: (Product) -> Unit
